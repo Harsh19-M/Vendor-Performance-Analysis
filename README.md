@@ -1,4 +1,4 @@
-# Vendor Performance Analysis
+# Vendor Performance Analysis & Insights
 End-to-end **Vendor Performance Analysis** project using **SQL** (data exploration, joins, and aggregation), **Python** (EDA, data cleaning, and research analysis), and **Power BI** (interactive dashboards and reporting) to identify top-performing vendors, optimize inventory efficiency, and uncover actionable business insights.  
 
 
