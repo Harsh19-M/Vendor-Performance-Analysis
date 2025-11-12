@@ -177,7 +177,7 @@ Used `purchase_prices` as the base table since it contained all key pricing fiel
 (`Price`, `Volume`, `PurchasePrice`) needed for analysis, unlike `purchases`.*/
 
 
-/* SO lets perform a join on purchase_prices table, sales table and vendor_invoice table*/
+/* AGGREGATED TABLE - SO lets perform a join on purchase_prices table, sales table and vendor_invoice table*/
 
 select pp."VendorNumber", pp."Brand", pp."PurchasePrice", pp."Price", 
 sum(S."SalesQuantity") as "Total_Sales_Qty", sum(S."SalesDollars") as "Total_Sales_Dollars", 
