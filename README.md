@@ -1,43 +1,57 @@
 # Vendor Performance Analysis
-End-to-end Vendor Performance Analysis using SQL (exploration of database tables, aggregation), Python (EDA, Data Cleaning , solving research questions, analysis), Power BI (interactive dashboards), and Reporting to identify top vendors, optimize inventory, and drive actionable business insights. Lastly Building Executive (Stakeholders) Style Deck.
-
-
-## Key Highlights
-
-## Tools & Skills
-**SQL**, **Power BI**, **DAX**, **Data Modeling**, **ETL**, **Data Cleaning**, **Business Analysis**
+End-to-end **Vendor Performance Analysis** project using **SQL** (data exploration, joins, and aggregation), **Python** (EDA, data cleaning, and research analysis), and **Power BI** (interactive dashboards and reporting) to identify top-performing vendors, optimize inventory efficiency, and uncover actionable business insights.  
 
 ---
 
-**Live Dashboard:** [View Power BI Report](your-link-here)  
-**Executive Presentation Deck:** [View Google Slides](https://docs.google.com/presentation/d/1e68ZcCHOzPbsdyf8bYjK0_WDwdPrHvC-m7F55FYTLYE/present)  
-**Full Case Study Below ↓**
+## Key Highlights
+- Built a complete **data analytics pipeline**: SQL → Python → Power BI  
+- Designed an **interactive Vendor Performance Dashboard** to track cost, margin, and efficiency  
+- Identified **underperforming vendors & brands** and uncovered **profitability gaps** across suppliers  
+- Delivered **data-backed recommendations** for better pricing and vendor negotiations  
 
+---
 
+## Tools & Skills
+**SQL**, **Python (EDA, Cleaning, Visualization)**, **Power BI**, **DAX**, **Data Modeling**, **ETL**, **Business Analysis**, **Hypothesis Testing**
 
+---
 
-# AtliQ Hardware Sales Insights Case Study
-**A Data-Driven Sales Performance Dashboard built using SQL (exploration) and Power BI (cleaning, modeling & visualization)**  
+📊 **Live Dashboard:** [View Power BI Report](your-link-here)  
+🎯 **Executive Deck:** [View Google Slides](https://docs.google.com/presentation/d/1e68ZcCHOzPbsdyf8bYjK0_WDwdPrHvC-m7F55FYTLYE/present)  
+📘 **Full Case Study Below ↓**
 
 ---
 
 ## Business Context
+A retail/wholesale company aims to **enhance profitability and operational efficiency** through better vendor and inventory management.  
+By leveraging historical **purchase, sales, and pricing** data, the company seeks to uncover cost inefficiencies and vendor performance gaps impacting profitability.
+
 ---
 
 ## Business Problem
+The company struggles to identify **underperforming vendors**, optimize **inventory turnover**, and make **data-driven purchasing decisions**.  
+This project aims to:  
+- Detect vendors or brands with declining sales or profit margins  
+- Understand the effect of **bulk purchasing** on cost efficiency  
+- Improve vendor negotiations and inventory control strategies  
 
 ---
 
 ## Key Challenges
-1. **Data Fragmentation:** No centralized data source or reliable reporting structure.  
-2. **Data Quality Issues:** Duplicates, invalid transactions (`sales_amount ≤ 0`), and mixed currencies (USD vs INR).  
-3. **Misinterpreted Market Growth:** Sales expansion mistaken for revenue growth due to unvalidated reporting.  
+1. **Vendor Performance Gaps** – Lack of visibility into vendor-level profitability and contribution.  
+2. **Inventory Inefficiency** – Slow-moving stock and poor turnover increasing holding costs.  
+3. **Fragmented Data Sources** – Purchase, sales, and pricing data stored across multiple tables, requiring extensive cleaning and joining.  
 
 ---
 
 ## Approach Overview
-**Framework Used:** AIMS Grid – *(Assumptions | Information | Methodology | Solutions)*  
+**Framework Used:** SMART & CRISP DM 
+*(Specific | Measurable | Achievable | Relevant | Time Bound)* & (Business Understanding | Data Understanding | Data Preparation | Analysis / Modeling | Evaluation | Deployment)
 
+### **Base Table Selection – `purchase_prices` vs `purchases`**
+
+* Both tables had vendor details (`VendorNumber`, `Brand`, `PurchasePrice`), but `purchase_prices` also included key fields like `Price` and `Volume`.
+* Since all brands in `purchase_prices` appeared in `purchases`, we used `purchase_prices` as the **base table** to capture complete pricing details before joining with other tables for analysis.
 
 ---
 
