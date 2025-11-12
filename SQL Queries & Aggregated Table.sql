@@ -33,14 +33,13 @@ LIMIT 5;
 */
 
 
-//
-
 /*Let's now look at each individual table - Lets just choose one single vendor - and see How the table - information - data has been stored for the VendorNumber/Name 
 (Otherwise the quereis would take way too much time to load especially the sales table which has 12.8 Million+ rows)
 - This should give us an idea of all other vendors too
 
 Lets choose one single vendor and see how the information has been stored: 
 For eg; We pick VendorNumber 4466
+- This should give us an idea of all other vendors too
 */
 
 select *
