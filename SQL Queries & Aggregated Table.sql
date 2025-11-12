@@ -170,16 +170,18 @@ Order by "Total_Sales_Dollars";
 
 
 
-/* Base Table Selection - WORKING ON our Final Aggregated table: */
+/* Base Table Selection & WORKING ON our Final Aggregated table: */
 
 /* Base Table Selection – purchase_prices vs purchases: 
 Used `purchase_prices` as the base table since it contained all key pricing fields 
-(`Price`, `Volume`, `PurchasePrice`) needed for analysis, unlike `purchases`.*/
+(`Price`, `Volume`, `PurchasePrice`) needed for analysis, unlike `purchases`.
 
+`Quantity` and `Dollars` columns were present in both the purchases table and the vendor_invoice table 
+So it was an easier choice to pick the vendor_invoice - `Quantity` and `Dollars` columns */
 
 /* AGGREGATED TABLE - SO lets perform a join on purchase_prices table, sales table and vendor_invoice table*/
 
-select pp."VendorNumber", pp."Brand", pp."PurchasePrice", pp."Price", 
+select pp."VendorNumber", pp."Brand", pp."PurchasePrice" as "", pp."Price" as "Actual_Price", 
 sum(S."SalesQuantity") as "Total_Sales_Qty", sum(S."SalesDollars") as "Total_Sales_Dollars", 
 sum(S."SalesPrice") as "Total_Sales_Price", sum(S."ExciseTax") as "Total_Excise_Tax",
 sum(Vi."Quantity") as "Total_Purchase_Quantity", sum(Vi."Dollars") as "Total_Purchase_Dollars", 
@@ -189,6 +191,9 @@ from purchase_prices as pp
 join sales as S on S."VendorNo" = pp."VendorNumber" and S."Brand" = pp."Brand"
 join vendor_invoice as Vi on pp."VendorNumber" = Vi."VendorNumber"
 group by pp."VendorNumber", pp."Brand", pp."PurchasePrice", pp."Price";
+
+/*RESULT: ^^Kept Buffering^^ */
+
 
 /*So initially we Tried to just simply join all 3 of these tables we created above BUT 
 that did not run due to much of Memory Usage - SO we made use of CTEs(With - As) */
