@@ -1,7 +1,6 @@
 # Vendor Performance Analysis
 End-to-end **Vendor Performance Analysis** project using **SQL** (data exploration, joins, and aggregation), **Python** (EDA, data cleaning, and research analysis), and **Power BI** (interactive dashboards and reporting) to identify top-performing vendors, optimize inventory efficiency, and uncover actionable business insights.  
 
---- 
 
 ## Key Highlights
 - Built a complete **end-to-end data analytics pipeline**: connected and queried PostgreSQL tables → cleaned, aggregated, and analyzed data in Python → visualized and modeled insights in Power BI for actionable business decisions.  
@@ -10,7 +9,6 @@ End-to-end **Vendor Performance Analysis** project using **SQL** (data explorati
 - Delivered **data-backed recommendations** for pricing optimization, vendor negotiations, and inventory management.  
 - Applied structured **project planning frameworks**: **SMART** goals for objectives and **CRISP-DM** methodology for step-by-step data analysis, from business understanding → data preparation → modeling → evaluation → deployment.  
 
----
 
 ## Tools & Skills
 **SQL(PostgreSQL)** | **Python(EDA, Cleaning, Visualization)** | **Power BI** - **DAX** | **Data Modeling** | **ETL** | **Hypothesis Testing** | **Business Analysis** 
