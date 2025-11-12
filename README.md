@@ -23,6 +23,12 @@ End-to-end **Vendor Performance Analysis** project using **SQL** (data explorati
 
 ---
 
+
+# Vendor Performance Analysis (Approach & Findings)
+**A Comprehensive Data Analytics Project analyzing vendor performance, inventory efficiency, and cost drivers using PostgreSQL, Python, and Power BI, uncovering actionable insights to optimize procurement, pricing, and operational decisions.**
+
+---
+
 ## Business Context
 A retail/wholesale company aims to **enhance profitability and operational efficiency** through better vendor and inventory management.  
 By leveraging historical **purchase, sales, and pricing** data, the company seeks to uncover cost inefficiencies and vendor performance gaps impacting profitability.
