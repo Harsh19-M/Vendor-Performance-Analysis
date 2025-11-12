@@ -1,5 +1,5 @@
 
-/*Initial EDA to explore and Understand the DataSets According to/Based on - The Business Problem Statement: 
+/*Initial EDA to explore and Understand the DataSets based on - The Business Problem Statement: 
 Find out there is a need to create any Aggregated tables that help with Vendor Selection for Profitability Product Pricing Optimization*/
 
 SELECT *
