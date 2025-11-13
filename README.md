@@ -3,7 +3,8 @@ End-to-end **Vendor Performance Analysis** project using **SQL** (data explorati
  
 
 ## Key Highlights
-- Built a complete **end-to-end data analytics pipeline**: connected and queried PostgreSQL tables → cleaned, aggregated, and analyzed data in Python → visualized and modeled insights in Power BI for actionable business decisions.  
+- Built a complete **end-to-end data analytics pipeline**: connected and queried PostgreSQL tables → cleaned, aggregated, and analyzed data in Python → visualized and modeled insights in Power BI for actionable business decisions.
+- Aggregated massive datasets from `vendor_invoice`, `purchases`, and `sales tables` **(millions of rows)** into a single **`vendor_sales_summary`** table of **10,692 rows** using **CTEs (Common Table Expressions)** to pre-aggregate freight, purchase, and sales metrics per vendor-brand, enabling faster, actionable analysis.
 - Designed an **interactive Vendor Performance Dashboard** to track cost, margin, sales, and operational efficiency.  
 - Identified **underperforming vendors & brands** and uncovered **profitability gaps** across suppliers, enabling targeted interventions.  
 - Delivered **data-backed recommendations** for pricing optimization, vendor negotiations, and inventory management.  
@@ -52,9 +53,15 @@ This project aims to:
 **Framework Used:** SMART & CRISP-DM  
 *(Specific | Measurable | Achievable | Relevant | Time Bound)* & (Business Understanding | Data Understanding | Data Preparation | Analysis / Modeling | Evaluation | Deployment)
 
-### **Base Table Selection – `purchase_prices` vs `purchases`**
-* Both tables contained vendor-level details (`VendorNumber`, `Brand`, `PurchasePrice`), but `purchase_prices` also had key fields like `Price`.
-* All brands in `purchase_prices` were present in `purchases`, so we selected `purchase_prices` as the **base table** to ensure complete pricing and volume information before joining with sales and vendor invoice tables for further analysis.
+
+### **Initial Approach – Joining `purchase_prices` `sales` `vendor_invoice`**
+- Chose **`purchase_prices`** as the base table since it contained all key fields (`Price`, `Volume`, `PurchasePrice`) required for analysis, ensuring complete pricing and volume info per vendor & brand.  
+- Tried joining all three main tables (`purchase_prices`, `sales`, `vendor_invoice`) directly, but the raw sales table had millions of rows, causing performance issues.  
+
+### **Aggregated Table Creation – `vendor_sales_summary`**
+- Created **`FreightSummary`**, **`PurchaseSummary`**, and **`SalesSummary`** using CTEs to pre-aggregate data, reducing row count drastically.  
+- Built **`vendor_sales_summary`** by joining the CTEs on `VendorNumber` and `Brand`, combining freight, purchase, and sales metrics for each vendor-brand pair.  
+- Pulled **`vendor_sales_summary`** into **Python** via **SQLAlchemy + Pandas** for data cleaning, EDA, and visualization in VSCode.
 
 ---
 
