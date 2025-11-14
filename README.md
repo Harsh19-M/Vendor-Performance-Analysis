@@ -64,7 +64,7 @@ This project aims to:
 
 ### **Data Cleaning & Loading – PostgreSQL → Python → PostgreSQL**
 
-- Connected to the `vendor_sales_summary` table using **SQLAlchemy + Pandas** for cleaning and feature engineering.  
+- Connected to the `vendor_sales_summary` table using **SQLAlchemy + Pandas** for cleaning.  
 - **Initial data inspection**: checked column types (`df.dtypes`), null values (`df.isnull().sum()`), and unique string values (e.g., `VendorName`) to detect inconsistencies.  
 - **Handled missing/null values**: filled sales-related nulls with 0 (`df.fillna(0, inplace=True)`) for clean numeric calculations.  
 - **Data type corrections**: converted `Volume` to `float64` and stripped whitespace from `VendorName`.  
