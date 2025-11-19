@@ -76,10 +76,103 @@ This project aims to:
 - **Verified data quality**: ensured no duplicates, checked for negative values, and reviewed descriptive statistics (`df.describe().T`).  
 - **Loaded cleaned table back to PostgreSQL**: created `vendor_sales_summary_clean_addedcols` and stored using `df.to_sql(..., if_exists='replace', index=False)` for downstream EDA, visualization, and dashboarding.
 
-### **EDA & Research**
 
-**Data Quality Check:**
-During the Profit Margin analysis, a small number of extreme negative outliers were identified (e.g., values below -20,000%). These outliers are most likely caused by returns, manual adjustments, or data entry errors in the source system. Since they represent a very small fraction of the total records and do not materially change the overall trends, vendor rankings, or strategic insights, they were retained for transparency and flagged as data anomalies. In a real business setting, these entries would be forwarded to the finance/operations team for validation, but they do not affect the conclusions of this analysis.
+### **EDA Findings: Key Insights & Recommendations**
+
+**1. Total Sales Distribution Across Vendors**
+
+**Insights**
+- A few vendors contribute a disproportionately large share of total sales, indicating strong revenue concentration.  
+- Sales distribution is highly uneven, with long-tail vendors contributing minimal volume.  
+- The business is exposed to concentration risk if major vendors face supply or operational disruptions.
+
+**Recommendations**
+- Strengthen negotiation leverage and strategic relationships with high-volume vendors.  
+- Assess mid-tier vendors for growth potential to diversify revenue sources.  
+- Explore promotional strategies to expand share for underrepresented vendors.
+
+
+**2. Gross Profit Contribution by Vendor**
+
+**Insights**
+- Gross profit is concentrated among top vendors that also lead in total sales volume.  
+- High-performing vendors demonstrate consistent profitability across multiple brands.  
+- Lower-tier vendors show minimal profitability due to low volume or suboptimal pricing.
+
+**Recommendations**
+- Prioritize high-GP vendors for joint planning, improved terms, and long-term business agreements.  
+- Reevaluate low-performing vendors and reassess assortment relevance or pricing structure.  
+- Promote historically strong GP brands to maximize margin contribution.
+
+
+**3. Profit Margin Distribution**
+
+**Insights**
+- Most vendors operate within a healthy positive margin range (0–40%).  
+- High-margin vendors likely benefit from strong pricing, brand strength, or efficient supply structures.  
+- Extreme negative margins were identified but attributed to returns or adjustments rather than systemic issues.
+
+**Recommendations**
+- Expand support and visibility for high-margin vendors to grow profit contribution.  
+- Work with mid-margin vendors on negotiation, freight optimization, and pricing refinement.  
+- Flag extreme negative margin cases for Finance/Operations validation and upstream correction.
+
+**Data Quality Note**
+During Profit Margin analysis, a small set of extreme negative outliers (e.g., < –20,000%) were identified. These entries likely reflect returns, manual adjustments, or upstream data entry anomalies. They were retained for transparency because they represent a very small portion of the dataset and do not materially impact vendor rankings or strategic insights. In a real operational environment, these anomalies would be flagged for Finance/Operations review.
+
+
+**4. Stock Turnover by Vendor**
+
+**Insights**
+- Most vendors have a stock turnover between 0.8–2.0, indicating normal inventory movement.
+- A few vendors show extremely high turnover (e.g., FLAVOR ESSENCE INC ~59), likely due to fast-moving products or low starting inventory.
+- Some vendors have zero or near-zero turnover, which may indicate slow-moving stock or inactive SKUs.
+
+**Recommendations**
+- Monitor vendors with very high turnover to ensure supply meets demand and avoid stockouts.
+- Investigate vendors with low or zero turnover to optimize inventory or phase out inactive products.
+- Adjust purchase planning and warehouse allocation based on turnover trends.
+
+
+**5. Unit Cost vs. Purchase Quantity**
+
+**Insights**
+- Unit costs vary widely, with some very high-cost purchases and many lower-cost bulk purchases.
+- Extremely high or low unit costs may indicate small sample purchases, special SKUs, or pricing anomalies.
+
+**Recommendations**
+- Review outlier unit costs to confirm data accuracy and check for unusual pricing.
+- Negotiate pricing or bundle options for high-cost low-volume purchases.
+- Use unit cost insights to inform inventory and vendor negotiations.
+
+
+**6. Sales-to-Purchase Ratio**
+
+**Insights**
+- Most vendors sell 1–3 times their purchase quantity, indicating typical resale rates.
+- Some vendors have very high ratios (e.g., FLAVOR ESSENCE INC ~86), showing high efficiency or rapid turnover.
+- A few vendors have ratios near zero, indicating stock may not be selling or purchases were not converted into sales.
+
+**Recommendations**
+- Support high-performing vendors to scale up successful SKUs.
+- Review low-performing vendors to identify underperforming products or adjust purchasing strategy.
+- Track sales-to-purchase trends for vendor performance benchmarking.
+
+
+**7. Gross Profit Variability – Top 15 Vendors**
+
+**Insights**
+- Top vendors generate the majority of total sales, but gross profit varies significantly across brands/products.
+- Some vendors occasionally have very high or very low profits, reflecting inconsistent performance.
+- Consistently high-GP vendors provide reliable contribution to overall profitability.
+
+**Recommendations**
+- Focus on stabilizing supply, pricing, and promotions for vendors with high variability.
+- Prioritize long-term partnerships with consistently high-GP vendors.
+- Investigate occasional extreme losses for certain brands/products to prevent repeated impact on gross profit.
+
+---
+
 
 
 ---
