@@ -79,7 +79,7 @@ This project aims to:
 
 ### **EDA Findings: Key Insights & Recommendations**
 
-**1. Total Sales Distribution Across Vendors**
+1. **Total Sales Distribution Across Vendors**
 
 **Insights**
 - A few vendors contribute a disproportionately large share of total sales, indicating strong revenue concentration.  
@@ -92,7 +92,7 @@ This project aims to:
 - Explore promotional strategies to expand share for underrepresented vendors.
 
 
-**2. Gross Profit Contribution by Vendor**
+2. **Gross Profit Contribution by Vendor**
 
 **Insights**
 - Gross profit is concentrated among top vendors that also lead in total sales volume.  
@@ -105,7 +105,7 @@ This project aims to:
 - Promote historically strong GP brands to maximize margin contribution.
 
 
-**3. Profit Margin Distribution**
+3. **Profit Margin Distribution**
 
 **Insights**
 - Most vendors operate within a healthy positive margin range (0–40%).  
@@ -121,7 +121,7 @@ This project aims to:
 During Profit Margin analysis, a small set of extreme negative outliers (e.g., < –20,000%) were identified. These entries likely reflect returns, manual adjustments, or upstream data entry anomalies. They were retained for transparency because they represent a very small portion of the dataset and do not materially impact vendor rankings or strategic insights. In a real operational environment, these anomalies would be flagged for Finance/Operations review.
 
 
-**4. Stock Turnover by Vendor**
+4. **Stock Turnover by Vendor**
 
 **Insights**
 - Most vendors have a stock turnover between 0.8–2.0, indicating normal inventory movement.
@@ -134,7 +134,7 @@ During Profit Margin analysis, a small set of extreme negative outliers (e.g., <
 - Adjust purchase planning and warehouse allocation based on turnover trends.
 
 
-**5. Unit Cost vs. Purchase Quantity**
+5. **Unit Cost vs. Purchase Quantity**
 
 **Insights**
 - Unit costs vary widely, with some very high-cost purchases and many lower-cost bulk purchases.
@@ -146,7 +146,7 @@ During Profit Margin analysis, a small set of extreme negative outliers (e.g., <
 - Use unit cost insights to inform inventory and vendor negotiations.
 
 
-**6. Sales-to-Purchase Ratio**
+6. **Sales-to-Purchase Ratio**
 
 **Insights**
 - Most vendors sell 1–3 times their purchase quantity, indicating typical resale rates.
@@ -159,7 +159,7 @@ During Profit Margin analysis, a small set of extreme negative outliers (e.g., <
 - Track sales-to-purchase trends for vendor performance benchmarking.
 
 
-**7. Gross Profit Variability – Top 15 Vendors**
+7. **Gross Profit Variability – Top 15 Vendors**
 
 **Insights**
 - Top vendors generate the majority of total sales, but gross profit varies significantly across brands/products.
