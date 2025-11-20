@@ -392,12 +392,14 @@ plt.show()
 ```
 
 #### **Output Summary (Top 15 Vendors)**
-- **Top vendor by total sales: DIAGEO NORTH AMERICA INC — $68.7M**
-Next 4 top vendors:
+
+**Top 5 (all 15 in Graph) vendor by total sales:**
+- **DIAGEO NORTH AMERICA INC — $68.7M**
 - **MARTIGNETTI COMPANIES — $40.96M**
 - **PERNOD RICARD USA — $32.28M**
 - **JIM BEAM BRANDS COMPANY — $31.89M**
 - **BACARDI USA INC — $25.01M**
+
 Gross profit variability: wide range across top vendors (boxplot shows min, max, median, and quartiles for each)
 Insight: Some high-sales vendors show large profit variability, highlighting potential volatility or inconsistent margins
 
