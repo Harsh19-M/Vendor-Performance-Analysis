@@ -173,10 +173,6 @@ During Profit Margin analysis, a small set of extreme negative outliers (e.g., <
 
 ---
 
-
-
----
-
 ## Key Insights
 ## Business Impact
 | **Metric** | **Before** | **After** |
