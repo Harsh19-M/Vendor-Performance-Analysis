@@ -112,7 +112,7 @@ plt.show()
 - **PERNOD RICARD USA — \$32.3M**  
 - **JIM BEAM BRANDS COMPANY — \$31.9M**  
 - **BACARDI USA INC — \$25.0M**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 
 ### **2. Total Gross Profit by Vendor**
@@ -150,7 +150,7 @@ plt.show()
 - **CONSTELLATION BRANDS INC — \$8.89M**  
 - **PERNOD RICARD USA — \$8.15M**  
 - **JIM BEAM BRANDS COMPANY — \$7.69M**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 
 ### **3. Profit Margin by Vendor**
@@ -196,7 +196,7 @@ During Profit Margin analysis, a small set of extreme negative outliers (e.g., <
 - **M S WALKER INC — 83.85%**  
 - **LATITUDE BEVERAGE COMPANY — 87.95%**  
 - **SOUTHERN WINE & SPIRITS NE — 81.72%**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 **Bottom Profit Margins (sample of bottom 5 entries / losses):**
 - **MARTIGNETTI COMPANIES — -1555.32%**  
@@ -204,7 +204,7 @@ During Profit Margin analysis, a small set of extreme negative outliers (e.g., <
 - **STATE WINE & SPIRITS — -1,500.47%**  
 - **DIAGEO CHATEAU ESTATE WINES — -906.60%**  
 - **M S WALKER INC — -143.24%**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 
 ### **4. Stock Turnover by Vendor**
@@ -252,7 +252,7 @@ plt.show()
 - **MHW LTD — 4.94**  
 - **ALISA CARR BEVERAGES — 4.70**
 - **MARSALLE COMPANY — 3.64**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 **Bottom Vendors by Average Stock Turnover (sample of bottom 5):**
 - **AAPER ALCOHOL & CHEMICAL CO — 0.0**  
@@ -260,7 +260,7 @@ plt.show()
 - **TRUETT HURST — 0.042**  
 - **VINEYARD BRANDS LLC — 0.26**  
 - **HIGHLAND WINE MERCHANTS LLC — 0.30**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 
 ### **5. Unit Cost vs Purchase Quantity**
@@ -355,7 +355,7 @@ plt.show()
 - **ALISA CARR BEVERAGES — 7.15**
 - **MHW LTD — 6.45**  
 - **MARSALLE COMPANY — 4.88**
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 **Lowest 5 Vendors by Sales-to-Purchase Ratio:**
 - **AAPER ALCOHOL & CHEMICAL CO — 0.00**  
@@ -363,7 +363,7 @@ plt.show()
 - **TRUETT HURST — 0.06**  
 - **VINEYARD BRANDS LLC — 0.38**  
 - **BLACK COVE BEVERAGES — 0.43**  
-*(full list in bar chart)*
+*(full list in full Plot/Chart)*
 
 
 ### **7. Profit Variability for Top Vendors (Top 15 by Sales)**
@@ -405,9 +405,7 @@ Insight: Some high-sales vendors show large profit variability, highlighting pot
 
 (Full boxplot visually shows variability across all top 15 vendors)
 
-
 ---
-
 
 ## Key Insights
 
@@ -501,6 +499,7 @@ Insight: Some high-sales vendors show large profit variability, highlighting pot
 - Prioritize long-term partnerships with consistently high-GP vendors.
 - Investigate occasional extreme losses for certain brands/products to prevent repeated impact on gross profit.
 
+---
 
 ## Business Impact
 | **Metric** | **Before** | **After** |
