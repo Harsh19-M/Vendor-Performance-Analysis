@@ -85,7 +85,8 @@ This highlights key revenue drivers and potential concentration risk.
 
 #### **Code Used in ```Python```**
 
-```df["Total_Sales_in_Dollars"].describe()
+```
+df["Total_Sales_in_Dollars"].describe()
 
 top_sales = (df.groupby("VendorName")["Total_Sales_in_Dollars"].sum().nlargest(20))
 
