@@ -408,6 +408,8 @@ Insight: Some high-sales vendors show large profit variability, highlighting pot
 
 (Full boxplot visually shows variability across all top 15 vendors)
 
+</details>
+
 ---
 
 ## Key Insights
