@@ -80,7 +80,7 @@ This project aims to:
 ### **1. Total Sales by Vendor**
 
 #### **Brief Explanation**
-We grouped total sales by vendor to identify which suppliers generate the highest revenue.  
+Grouped total sales by vendor to identify which suppliers generate the highest revenue.  
 This highlights key revenue drivers and potential concentration risk.
 
 #### **Code Used in ```Python```**
@@ -100,7 +100,6 @@ plt.show()
 ```
 
 #### **Output Summary**
-
 - **Median vendor sales:** \$160K 
 - **75th percentile:** \$2.53M 
 - **Mean vendor sales:** \$3.52M
@@ -115,12 +114,295 @@ plt.show()
 - **BACARDI USA INC — \$25.0M**  
 *(full list in bar chart)*
 
----
 
-#### **Quick Insight**
-A small group of vendors accounts for the majority of total sales, showing strong revenue concentration.
+### **2. Total Gross Profit by Vendor**
 
----
+#### **Brief Explanation**
+Aggregated *Gross Profit* at the **vendor level** to understand which suppliers drive the most profitability.  
+This highlights high-margin partners and flags low- or negative-profit vendors for further review.
+
+#### **Code Used in `Python`**
+```
+df.groupby("VendorName")["Gross_Profit"].sum().describe()
+
+top_VENs_byGP = (
+    df.groupby("VendorName")["Gross_Profit"].sum().nlargest(20)
+)
+
+top_VENs_byGP.plot(kind="barh", figsize=(10, 6))
+plt.gca().invert_yaxis()
+plt.title("Top Vendors by Total Gross Profit")
+plt.xlabel("Gross Profit ($)")
+plt.ylabel("Vendor Name")
+plt.show()
+```
+
+#### **Output Summary (Vendor-Level)**
+- **Count of vendors:** \128
+- **Median vendor GP:** \$33,923
+- **75th percentile:** \$780,128
+- **Max vendor GP:** \$17.78M
+- **Min vendor GP:** –$9,194 (loss-making vendor)
+
+**Top Vendors by Total Gross Profit ($)**
+- **DIAGEO NORTH AMERICA INC — \$17.78M**  
+- **MARTIGNETTI COMPANIES — \$13.09M**  
+- **CONSTELLATION BRANDS INC — \$8.89M**  
+- **PERNOD RICARD USA — \$8.15M**  
+- **JIM BEAM BRANDS COMPANY — \$7.69M**  
+*(full list in bar chart)*
+
+
+### **3. Profit Margin by Vendor**
+
+#### **Brief Explanation**
+Analyzed vendor-level profit margins to identify high-margin suppliers and detect extreme losses or negative margins.
+This helps flag both top-performing and underperforming vendors for operational or pricing review.
+
+#### **Code Used in `Python`**
+```
+# Vendor-level profit margin summary
+df["Profit_Margin"].describe()
+
+# Top 60 vendor-margin entries
+som = df.head(60)
+som[["VendorName", "Profit_Margin"]].values
+
+# Scatter plot of top 60 margins
+som.plot(kind="scatter", x="Profit_Margin", y="VendorName")
+
+# Bottom 60 vendor-margin entries
+lo = df.tail(60)
+lo[["VendorName", "Profit_Margin"]].values
+
+# Scatter plot of bottom 60 margins
+lo.plot(kind="scatter", x="Profit_Margin", y="VendorName")
+```
+
+#### **Output Summary (Entry-Level)**
+- **Count of entries: 10,692** 
+- **Mean profit margin: –15.62%** 
+- **25th percentile: 13.32%** 
+- **75th percentile: 39.96%** 
+- **Min: –23,730% (extreme negative outlier)**
+- **Max: 99.72%**
+
+**Data Quality Note**
+During Profit Margin analysis, a small set of extreme negative outliers (e.g., < –20,000%) were identified. These entries likely reflect returns, manual adjustments, or upstream data entry anomalies. They were retained for transparency because they represent a very small portion of the dataset and do not materially impact vendor rankings or strategic insights. In a real operational environment, these anomalies would be flagged for Finance/Operations review.
+
+**Top Profit Margins (sample of top 5 entries):**
+- **PALM BAY INTERNATIONAL INC — 92.64%**  
+- **JIM BEAM BRANDS COMPANY — 94.40%**  
+- **M S WALKER INC — 83.85%**  
+- **LATITUDE BEVERAGE COMPANY — 87.95%**  
+- **SOUTHERN WINE & SPIRITS NE — 81.72%**  
+*(full list in bar chart)*
+
+**Bottom Profit Margins (sample of bottom 5 entries / losses):**
+- **MARTIGNETTI COMPANIES — -1555.32%**  
+- **PHILLIPS PRODUCTS CO. — -1659.91%**  
+- **STATE WINE & SPIRITS — -1,500.47%**  
+- **DIAGEO CHATEAU ESTATE WINES — -906.60%**  
+- **M S WALKER INC — -143.24%**  
+*(full list in bar chart)*
+
+
+### **4. Stock Turnover by Vendor**
+
+#### **Brief Explanation**
+Calculated the average stock turnover per vendor to identify which suppliers move inventory fastest.
+Highlights potential supply chain bottlenecks or overstock risks
+
+#### **Code Used in `Python`**
+```
+# Vendor-level stock turnover summary
+df.groupby("VendorName")["Stock_Turnover"].mean().describe()
+
+# Top 25 vendors by stock turnover
+STH = df.groupby("VendorName")["Stock_Turnover"].mean().nlargest(25)
+
+STH.plot(kind="bar", figsize=(10, 6))
+plt.title("Top 25 Vendors by Stock Turnover")
+plt.xlabel("Vendor Name")
+plt.ylabel("Average Stock Turnover")
+plt.show()
+
+# Bottom 25 vendors by stock turnover
+STL = df.groupby("VendorName")["Stock_Turnover"].mean().nsmallest(25)
+
+STL.plot(kind="bar", figsize=(10, 6))
+plt.title("Bottom 25 Vendors by Stock Turnover")
+plt.xlabel("Vendor Name")
+plt.ylabel("Average Stock Turnover")
+plt.show()
+```
+
+#### **Output Summary**
+- **Count of vendors: 128**
+- **Mean vendor stock turnover: 1.91**
+- **Median vendor stock turnover: 1.07** 
+- **25th percentile: 0.86** 
+- **75th percentile: 1.64** 
+- **Max vendor stock turnover: 59.0 (FLAVOR ESSENCE INC)**
+- **Min vendor stock turnover: 0.0 (AAPER ALCOHOL & CHEMICAL CO, LAUREATE IMPORTS CO)** 
+
+**Top Vendors by Average Stock Turnover (sample of top 5):**
+- **FLAVOR ESSENCE INC — 59.0**  
+- **DISARONNO INTERNATIONAL LLC — 16.89**  
+- **MHW LTD — 4.94**  
+- **ALISA CARR BEVERAGES — 4.70**
+- **MARSALLE COMPANY — 3.64**  
+*(full list in bar chart)*
+
+**Bottom Vendors by Average Stock Turnover (sample of bottom 5):**
+- **AAPER ALCOHOL & CHEMICAL CO — 0.0**  
+- **LAUREATE IMPORTS CO — 0.0**  
+- **TRUETT HURST — 0.042**  
+- **VINEYARD BRANDS LLC — 0.26**  
+- **HIGHLAND WINE MERCHANTS LLC — 0.30**  
+*(full list in bar chart)*
+
+
+### **5. Unit Cost vs Purchase Quantity**
+
+#### **Brief Explanation**
+Calculated unit cost per item to analyze pricing trends relative to purchase quantity.
+Helps identify bulk-purchase efficiencies or anomalies in unit pricing.
+
+
+#### **Code Used in `Python`**
+```
+# Calculate unit cost
+df["Unit_Cost"] = df["Total_Purchase_in_Dollars"] / df["Total_Purchase_Quantity"]
+
+# Scatter plot of purchase quantity vs unit cost
+df.plot(kind="scatter", x="Total_Purchase_Quantity", y="Unit_Cost", figsize=(10, 6))
+plt.title("Unit Cost vs Total Purchase Quantity")
+plt.xlabel("Total Purchase Quantity")
+plt.ylabel("Unit Cost ($)")
+plt.show()
+
+# Descriptive stats
+df["Total_Purchase_Quantity"].describe()
+df["Unit_Cost"].describe()
+```
+
+#### **Output Summary - Total Purchase Quantity:**
+- **Count: 10,692**
+- **Mean: 3,141 units**
+- **Median: 262 units** 
+- **25th percentile: 36 units** 
+- **75th percentile: 1,976 units** 
+- **Max: 337,660 units**
+- **Min: 1 unit** 
+
+**Unit Cost ($):**
+- **Count: 10,692**  
+- **Mean: $24.39**  
+- **Median: $10.46**
+- **25th percentile: $6.84**
+- **75th percentile: $19.48**
+- **Min: $0.36**
+- **Max: $5,681.81**
+
+**Observations:**
+- Most purchases are moderate quantity (<2,000 units) with unit costs clustered under $20.
+-Outliers exist with extremely high unit cost or very large purchase quantities.
+- Scatter plot highlights bulk-purchase efficiency and potential anomalies.
+
+
+### **6. Sales-to-Purchase Ratio by Vendor**
+
+#### **Brief Explanation**
+Calculated the average sales-to-purchase ratio per vendor to evaluate efficiency in converting purchases into sales.
+This identifies top-performing vendors and potential underperformers
+
+#### **Code Used in `Python`**
+```
+# Vendor-level statistical summary
+df.groupby("VendorName")["Sales_to_Purchase_Ratio"].mean().describe()
+
+# Top 25 vendors by average Sales-to-Purchase Ratio
+SRVT = df.groupby("VendorName")["Sales_to_Purchase_Ratio"].mean().nlargest(25)
+SRVT.plot(kind="barh", figsize=(10,6))
+plt.gca().invert_yaxis()
+plt.title("Top Vendors by Sales-to-Purchase Ratio")
+plt.xlabel("Sales-to-Purchase Ratio")
+plt.ylabel("Vendor Name")
+plt.show()
+
+# Bottom 25 vendors by average Sales-to-Purchase Ratio
+SRVS = df.groupby("VendorName")["Sales_to_Purchase_Ratio"].mean().nsmallest(25)
+SRVS.plot(kind="barh", figsize=(10,6))
+plt.gca().invert_yaxis()
+plt.title("Lowest Vendors by Sales-to-Purchase Ratio")
+plt.xlabel("Sales-to-Purchase Ratio")
+plt.ylabel("Vendor Name")
+plt.show()
+```
+
+#### **Output Summary (Vendor-Level)**
+- **Count of vendors: 128**
+- **Median ratio: 1.57**
+- **75th percentile: 2.33** 
+- **Mean ratio: 2.73** 
+- **Max ratio: 86.73 (FLAVOR ESSENCE INC)** 
+- **Min ratio: 0.00 (AAPER ALCOHOL & CHEMICAL CO, LAUREATE IMPORTS CO)**
+
+**Top 5 Vendors by Sales-to-Purchase Ratio:**
+- **FLAVOR ESSENCE INC — 86.73**
+- **DISARONNO INTERNATIONAL LLC — 22.26**
+- **ALISA CARR BEVERAGES — 7.15**
+- **MHW LTD — 6.45**  
+- **MARSALLE COMPANY — 4.88**
+*(full list in bar chart)*
+
+**Lowest 5 Vendors by Sales-to-Purchase Ratio:**
+- **AAPER ALCOHOL & CHEMICAL CO — 0.00**  
+- **LAUREATE IMPORTS CO — 0.00**  
+- **TRUETT HURST — 0.06**  
+- **VINEYARD BRANDS LLC — 0.38**  
+- **BLACK COVE BEVERAGES — 0.43**  
+*(full list in bar chart)*
+
+
+### **7. Profit Variability for Top Vendors (Top 15 by Sales)**
+
+#### **Brief Explanation**
+Selected the top 15 vendors by total sales and analyzed their gross profit distribution.
+This highlights variability and risk across major revenue-generating suppliers.
+
+#### **Code Used in `Python`**
+```
+# Top 15 vendors by total sales
+top_vendors = df.groupby("VendorName")["Total_Sales_in_Dollars"].sum().nlargest(15).index
+df_top = df[df["VendorName"].isin(top_vendors)]
+
+# Vendor-level gross profit stats for top vendors
+df_top.groupby("VendorName")["Gross_Profit"].describe()
+
+# Boxplot for profit variability
+plt.figure(figsize=(12,6))
+df_top.boxplot(column="Gross_Profit", by="VendorName", rot=90)
+plt.title("Profit Variability for Top Vendors")
+plt.suptitle("")  # removes default pandas "Boxplot grouped by ..."
+plt.xlabel("Vendor")
+plt.ylabel("Gross Profit ($)")
+plt.show()
+```
+
+#### **Output Summary (Top 15 Vendors)**
+- **Top vendor by total sales: DIAGEO NORTH AMERICA INC — $68.7M**
+Next 4 top vendors:
+- **MARTIGNETTI COMPANIES — $40.96M**
+- **PERNOD RICARD USA — $32.28M**
+- **JIM BEAM BRANDS COMPANY — $31.89M**
+- **BACARDI USA INC — $25.01M**
+Gross profit variability: wide range across top vendors (boxplot shows min, max, median, and quartiles for each)
+Insight: Some high-sales vendors show large profit variability, highlighting potential volatility or inconsistent margins
+
+(Full boxplot visually shows variability across all top 15 vendors)
+
 
 ---
 
@@ -166,10 +448,6 @@ A small group of vendors accounts for the majority of total sales, showing stron
 - Expand support and visibility for high-margin vendors to grow profit contribution.  
 - Work with mid-margin vendors on negotiation, freight optimization, and pricing refinement.  
 - Flag extreme negative margin cases for Finance/Operations validation and upstream correction.
-
-**Data Quality Note**
-During Profit Margin analysis, a small set of extreme negative outliers (e.g., < –20,000%) were identified. These entries likely reflect returns, manual adjustments, or upstream data entry anomalies. They were retained for transparency because they represent a very small portion of the dataset and do not materially impact vendor rankings or strategic insights. In a real operational environment, these anomalies would be flagged for Finance/Operations review.
-
 
 4. **Stock Turnover by Vendor**
 
