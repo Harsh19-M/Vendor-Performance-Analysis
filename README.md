@@ -83,19 +83,20 @@ This project aims to:
 We grouped total sales by vendor to identify which suppliers generate the highest revenue.  
 This highlights key revenue drivers and potential concentration risk.
 
-#### **Code Used**
-```python```
-df["Total_Sales_in_Dollars"].describe()
+#### **Code Used in ```Python```**
 
-top_sales = (
+```df["Total_Sales_in_Dollars"].describe()```
+
+```top_sales = (
     df.groupby("VendorName")["Total_Sales_in_Dollars"].sum().nlargest(20)
-)
+)```
+```
 top_sales.plot(kind="barh", figsize=(10, 6))
 plt.gca().invert_yaxis()
 plt.title("Vendor Sales Total by VendorName")
 plt.xlabel("Sales in $")
 plt.ylabel("Vendor Name")
-plt.show()
+plt.show()```
 
 #### **Output Summary**
 
