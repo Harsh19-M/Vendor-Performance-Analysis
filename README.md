@@ -319,7 +319,7 @@ df["Unit_Cost"].describe()
 
 **Observations:**
 - Most purchases are moderate quantity (<2,000 units) with unit costs clustered under $20.
--Outliers exist with extremely high unit cost or very large purchase quantities.
+- Outliers exist with extremely high unit cost or very large purchase quantities.
 - Scatter plot highlights bulk-purchase efficiency and potential anomalies.
 </details>
 
