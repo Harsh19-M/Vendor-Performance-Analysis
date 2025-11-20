@@ -424,12 +424,13 @@ Insight: Some high-sales vendors show large profit variability, highlighting pot
 (Full boxplot visually shows variability across all top 15 vendors)
 </details>
 
-
 ---
 
 ## Key Insights
 
-### **EDA Findings: Key Insights & Recommendations**
+### **Key Insights & Findings:**
+
+<details> <summary><b> EDA Findings: Key Insights & Recommendations (Click to Expand)</b></summary>
 
 ### **1. Total Sales Distribution Across Vendors**
 
@@ -518,6 +519,8 @@ Insight: Some high-sales vendors show large profit variability, highlighting pot
 - Focus on stabilizing supply, pricing, and promotions for vendors with high variability.
 - Prioritize long-term partnerships with consistently high-GP vendors.
 - Investigate occasional extreme losses for certain brands/products to prevent repeated impact on gross profit.
+
+</details>
 
 ---
 
