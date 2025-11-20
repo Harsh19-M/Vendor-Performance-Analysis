@@ -84,10 +84,11 @@ We grouped total sales by vendor to identify which suppliers generate the highes
 This highlights key revenue drivers and potential concentration risk.
 
 #### **Code Used in ```Python```**
-
 ```
-df["Total_Sales_in_Dollars"].describe()
+# Vendor-level statistical summary
+df.groupby("VendorName")["Total_Sales_in_Dollars"].sum().describe()
 
+# Top 20 vendors by total sales
 top_sales = (df.groupby("VendorName")["Total_Sales_in_Dollars"].sum().nlargest(20))
 
 top_sales.plot(kind="barh", figsize=(10, 6))
@@ -100,9 +101,11 @@ plt.show()
 
 #### **Output Summary**
 
-- **Median vendor-brand sales:** \$5,298  
-- **75th percentile:** \$28,396  
-- **Max single entry:** \$5.1M  
+- **Median vendor sales:** \$160K 
+- **75th percentile:** \$2.53M 
+- **Mean vendor sales:** \$3.52M
+- **Max vendor sales:** \$68.7M (DIAGEO NORTH AMERICA INC)
+
 
 **Top Vendors by Total Sales ($):**
 - **DIAGEO NORTH AMERICA INC — \$68.7M**  
