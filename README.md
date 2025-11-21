@@ -485,6 +485,33 @@ Evaluate whether vendors who generate higher **total sales** also contribute hig
 **Conclusion:**
 Test #2 confirms that **Sales ↔ Profit** in this dataset move together very tightly. Vendor performance decisions can rely on this pattern with high confidence.
 
+
+### Test #3: Underperforming Brands (Low Sales / Low Profit SKUs)
+
+**Goal:**
+Find brands that are dragging overall performance so the business can take action — adjust prices, run promotions, or consider delisting.
+
+**Method:**
+
+* Calculated **Z-scores** for `total_sales_dollars` and `total_G_P` per brand.
+* Flagged brands that are **more than 1 standard deviation below the mean** in either sales or profit.
+
+**Findings:**
+
+* Brands with **Profit_Z < -1** or **Sales_Z < -1** are considered underperforming.
+* Example from the dataset:
+
+  * Brand 2277 → low profit (Profit_Z = -1.39), sales not too low
+  * Brand 4785 → low profit (Profit_Z = -1.09), sales not too low
+
+**Business Implication:**
+
+* These brands may require **promotions, price adjustments, or vendor renegotiations**.
+* Acting on this helps improve overall profitability and reduces wasted investment in low-performing SKUs.
+
+**Verdict:**
+Successfully identified all underperforming brands based on sales and profit.
+
 ---
 
 ## Key Insights
