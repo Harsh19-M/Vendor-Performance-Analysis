@@ -582,14 +582,15 @@ Test #4 provides a **clear performance segmentation** of SKUs. It highlights whi
 ---
 
 ## Tools & Techniques 
-| **Category** | **Used For** |
-|---------------|--------------|
-| AIMS Grid | Defining Project Purpose, Stakeholders, End Result, Success Critera|
-| MySQL | Data exploration & validation |
-| Power BI | Data cleaning, modeling & visualization |
-| Power Query + DAX | Data transformation & KPI calculations |
-| Excel | Initial data view / file imports |
-| Data Analysis | Business storytelling & trend diagnosis |
+| **Category**                              | **Used For**                                                                   |
+| ----------------------------------------- | ------------------------------------------------------------------------------ |
+| SQL (PostgreSQL)                          | Data aggregation, joins, and pre-aggregation of millions of rows               |
+| Python (Pandas, NumPy, Matplotlib)        | Data cleaning, EDA, hypothesis testing, calculated metrics                     |
+| Power BI                                  | Interactive dashboards, KPI tracking, and business reporting                   |
+| Data Modeling & ETL                       | Built `vendor_sales_summary` table; cleaned & enriched data                    |
+| Hypothesis Testing & Correlation Analysis | Bulk purchasing effect, sales-profit correlation, SKU/brand analysis           |
+| Business Frameworks (SMART & CRISP-DM)    | Structured project planning, analysis workflow, and actionable recommendations |
+
 
 ---
 
