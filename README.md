@@ -516,39 +516,43 @@ Sales for these brands were slightly below average but not extreme (Z ~ –0.13)
 Successfully identified all underperforming brands based on sales and profit.
 
 
-### **Test #4: Vendor SKU Performance Segments**
+### **Test #4: SKU Performance Segmentation**
 
 **Objective:**
-Assess how vendors’ SKUs are distributed across **performance segments** — i.e., which SKUs are High Turnover/High Profit, Low Turnover/High Profit, or Low Turnover/Low Profit. This helps identify where value is concentrated and which vendors dominate the SKU count.
+Segment SKUs by **turnover and profit** to identify which products are driving revenue and which may be underperforming, helping inform **inventory and vendor strategies**.
 
 **Approach:**
 
-* Used the `Performance_Segment` table aggregated by vendor.
-* Counted SKUs for each segment:
+* Classified each SKU into **three performance segments** based on sales and gross profit:
 
-  * **High Turnover / High Profit** – fast-selling profitable SKUs
-  * **Low Turnover / High Profit** – slow-moving profitable SKUs
-  * **Low Turnover / Low Profit** – slow-moving low-profit SKUs
-* Compared totals across vendors to understand distribution patterns.
+  1. **High Turnover / High Profit** – top-performing SKUs.
+  2. **Low Turnover / High Profit** – profitable but slower-selling SKUs.
+  3. **Low Turnover / Low Profit** – underperforming SKUs.
+* Summed the number of SKUs in each segment across all vendors.
+* Calculated each segment as a **percentage of total SKUs**.
 
-**Key Findings:**
+**Findings:**
 
-* Top vendors dominate SKU counts:
+| Performance Segment         | Total SKUs | % of Total SKUs |
+| --------------------------- | ---------- | --------------- |
+| High Turnover / High Profit | 1,037      | 13.1%           |
+| Low Turnover / High Profit  | 5,564      | 70.4%           |
+| Low Turnover / Low Profit   | 1,312      | 16.6%           |
+| **Total**                   | 7,913      | 100%            |
 
-  * `MARTIGNETTI COMPANIES`, `PERFECTA WINES`, `ULTRA BEVERAGE`, `M S WALKER`, and `PINE STATE TRADING CO` account for **~40% of all SKUs**.
-* **Low Turnover / High Profit SKUs** are the largest segment for most vendors (~60–70% of their SKUs).
-* **High Turnover / High Profit SKUs** are limited, even for top vendors. Only a few have >100 SKUs in this category.
-* **Low Turnover / Low Profit SKUs** are present but minor, generally <50 SKUs per vendor.
+**Interpretation:**
+
+* Most SKUs (70%) fall into **Low Turnover / High Profit**, meaning many products generate good profit but move slowly.
+* Only a small portion (13%) are both high turnover and high profit, representing **true star products**.
+* Around 17% of SKUs are low performing in both dimensions and may need **promotion, price adjustment, or delisting**.
 
 **Business Implication:**
 
-* Focus on expanding **High Turnover / High Profit SKUs** to drive revenue growth.
-* Maintain or optimize **Low Turnover / High Profit SKUs**, since they form the bulk of the portfolio.
-* Consider **reducing Low Turnover / Low Profit SKUs** to free up inventory resources or improve efficiency.
-* Vendor management should prioritize top SKU contributors for strategic planning, inventory decisions, and promotions.
+* Inventory and vendor management can **focus on star SKUs** while monitoring slow-moving profitable items.
+* Underperforming SKUs require **strategic intervention** to improve overall profitability and optimize stock levels.
 
-**Verdict:**
-The dataset shows a **clear concentration of value in certain vendors and SKU segments**. This segmentation provides actionable insight for prioritizing inventory, negotiating with vendors, and identifying growth opportunities.
+**Conclusion:**
+Test #4 provides a **clear performance segmentation** of SKUs. It highlights which products are key revenue drivers, which are slow movers, and which may be dragging down performance, enabling **data-driven inventory and vendor decisions**.
 
 ---
 
