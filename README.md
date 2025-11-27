@@ -7,7 +7,7 @@ End-to-end **Vendor Performance Analysis** project using **SQL** (data explorati
 - Aggregated massive datasets **(millions of rows)** from `vendor_invoice`, `purchases`, and `sales` table **(12.8+ million rows)** into a single **`vendor_sales_summary`** table of **10,692 rows** using **CTEs (Common Table Expressions)** to pre-aggregate freight, purchase, and sales metrics per vendor-brand, enabling faster, actionable analysis.
 - Performed EDA & Analytical Testing → Bulk Buying ≠ Guaranteed Savings(weak Correlation), high-sales vendors = generate high profit, identified underperforming brands for action, and segmented SKUs(Stock keeping unit) to reveal star vs slow-moving products for strategic inventory decisions.
 - Applied structured **project planning frameworks**: **SMART** goals for objectives and **CRISP-DM** methodology for step-by-step data analysis, from business understanding → data preparation → modeling → evaluation → deployment.
-- Built an **interactive Vendor Performance Dashboard** that pinpointed **underperforming vendors/brands**, exposed **profitability gaps**.
+- Built an **Interactive Vendor Performance Dashboard** that pinpointed **underperforming vendors/brands**, exposed **profitability gaps**.
 - Delivered **Data-driven recommendations** for pricing optimization, vendor negotiations, and inventory management.
 
 ## Tools & Skills
