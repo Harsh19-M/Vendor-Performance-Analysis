@@ -31,7 +31,7 @@ End-to-end **Vendor Performance Analysis** project using **SQL** (data explorati
 ## Business Context
 A retail/wholesale company aims to **enhance profitability and operational efficiency** through better vendor and inventory management.  
 By leveraging historical **purchase, sales, and pricing** data, the company seeks to uncover cost inefficiencies and vendor performance gaps impacting profitability.
-
+ 
 ---
 
 ## Business Problem
